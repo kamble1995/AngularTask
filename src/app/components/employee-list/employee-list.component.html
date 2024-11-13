@@ -1,0 +1,70 @@
+<div class="dashboard-container">
+    <div class="dashboard-header">
+      <h1>Employee Management Dashboard</h1>
+      <button mat-flat-button color="primary" (click)="addEmployee()">Add Employee</button>
+    </div>
+  
+    <div class="filter">
+        <mat-form-field appearance="fill">
+          <mat-label>Filter by Department</mat-label>
+          <input matInput [(ngModel)]="departmentFilter " (input)="applyFilter()" placeholder="Enter department name">
+        </mat-form-field>
+      </div>
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+           class="mat-elevation-z8 employee-table">
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+          Name
+        </th>
+        <td mat-cell *matCellDef="let element" (click)="viewEmployeeDetails(element)"> {{element.name}} </td>
+      </ng-container>
+  
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Email">
+          Email
+        </th>
+        <td mat-cell *matCellDef="let element" (click)="viewEmployeeDetails(element)"> {{element.email}} </td>
+      </ng-container>
+  
+      <!-- Department Column -->
+      <ng-container matColumnDef="department">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Department">
+          Department
+        </th>
+        <td mat-cell *matCellDef="let element" (click)="viewEmployeeDetails(element)"> {{element.department}} </td>
+      </ng-container>
+  
+      <!-- JoiningDate Column -->
+      <ng-container matColumnDef="joiningDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by JoiningDate">
+          Joining Date
+        </th>
+        <td mat-cell *matCellDef="let element" (click)="viewEmployeeDetails(element)"> {{element.joiningDate | date}} </td>
+      </ng-container>
+
+          <!-- Delete Button Column -->
+    <ng-container matColumnDef="Delete">
+        <th mat-header-cell *matHeaderCellDef>
+          Actions
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="warn" (click)="deleteEmployee(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+  
+      <tr mat-header-row *matHeaderRowDef="employeeColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: employeeColumns;"></tr>
+    </table>
+
+    <app-employee-card *ngIf="selectedEmployee" [employee]="selectedEmployee"></app-employee-card>
+
+  </div>
+
+
+
+  

@@ -1,0 +1,40 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "department": "HR",
+      "joiningDate": "2022-01-15"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "department": "IT",
+      "joiningDate": "2022-06-15"
+    }
+  ],
+  "departments": [
+    {
+      "name": "HR",
+      "value": "HR",
+      "id": "2d16"
+    },
+    {
+      "name": "Engineering",
+      "value": "Engineering",
+      "id": "6501"
+    },
+    {
+      "name": "IT",
+      "value": "IT",
+      "id": "9f30"
+    },
+    {
+      "name": "Finance",
+      "value": "Finance",
+      "id": "35e5"
+    }
+  ]
+}

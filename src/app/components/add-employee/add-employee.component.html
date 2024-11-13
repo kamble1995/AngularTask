@@ -1,0 +1,49 @@
+<div class="page-container">
+    <div class="form-container">
+      <form [formGroup]="employeeForm">
+        <h2>Employee Registration</h2>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" placeholder="Enter your name">
+          <mat-error *ngIf="employeeForm.get('name')?.hasError('required')">
+            Name is required
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" placeholder="Enter your email">
+          <mat-error *ngIf="employeeForm.get('email')?.hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="employeeForm.get('email')?.hasError('email') && !employeeForm.get('email')?.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Department</mat-label>
+          <mat-select formControlName="department">
+            <mat-option *ngFor="let dep of Departments" [value]="dep.value">{{ dep.name }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="employeeForm.get('department')?.hasError('required')">
+            Department is required
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Joining Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="joiningDate" placeholder="Select date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="employeeForm.get('joiningDate')?.hasError('required')">
+            Joining Date is required
+          </mat-error>
+        </mat-form-field>
+  
+        <button mat-flat-button type="submit" [disabled]="!employeeForm.valid" (click)="onSubmit()">Submit</button>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,61 @@
+/* Card Styling */
+.employee-card {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+  }
+  
+  .employee-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .card-header {
+    background-color: #4caf50; 
+    color: white;
+    padding: 15px 20px;
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  
+  .card-body {
+    padding: 20px 30px;
+    background-color: #f9f9f9;
+    border-radius: 0 0 15px 15px;
+    font-size: 1.1rem;
+  }
+  
+  .employee-name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .employee-info p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #555; 
+  }
+  
+  .employee-info p strong {
+    font-weight: 600;
+    color: #4caf50;
+  }
+  
+  @media (max-width: 768px) {
+    .employee-card {
+      width: 95%;
+    }
+  
+    .card-header {
+      font-size: 1.4rem;
+    }
+  
+    .card-body {
+      padding: 15px 20px;
+    }
+  }
+  
